@@ -7,18 +7,32 @@
     <title></title>
   </head>
   <body>
-    <div class='popupContainer'>
+    <div class='mainBoard' id='gameBoard'></div>
+    <div class='popupHolder' id='popupContainer'>
       <div class='popup' id='popup1'>
         <h2>It's Hangman!</h2>
         <p>Would you like to choose your own word, or randomly generate one?</p>
         <button class="popup1" id="chooseWord">Choose Your Own</button>
         <button class="popup1" id="randomGenerate">Randomly generate</button>
       </div>
-      <div class='popup' id='popup2'></div>
-      <div class='popup' id='popup3'></div>
+      <div class='popup' id='popup2'>
+        <select>
+          <option>Please Select A Category</option>
+          <option>Rock Stars</option>
+          <option>Famous Actors</option>
+        </select>
+        <button id='submit'>Submit</button>
+      </div>
+      <div class='popup' id='popup3'>
+        All set!
+        <button id ='startbutton'>Start!</button>
+      </div>
       <div class='popup' id='popup4'></div>
       <div class='popup' id='popup5'></div>
     </div>
+    <div id='letterContainer' class='letterContainer'></div>
+  <footer>&copy Curtis Ostle 2017</footer>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src='./main.js'></script>
   </body>
