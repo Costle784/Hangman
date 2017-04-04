@@ -23,17 +23,17 @@ popup4.hide();
 popup5.hide();
 
 function openPopup2() {
-  popup1.slideUp();
+  popup1.hide();
   popup2.slideDown();
 }
 
 function openPopup3() {
-  popup2.slideUp();
+  popup2.hide();
   popup3.slideDown();
 }
 
 function openPopup4() {
-  popup3.slideUp();
+  popup3.hide();
   popup4.slideDown();
 }
 
@@ -52,4 +52,14 @@ function createletters() {
     letterContainer.toggleClass('letterContainer');
     popupContainer.hide();
     gameBoard.show();
+}
+
+let selector = $('#selector');
+let selectButton = $('#select');
+
+selectButton.on('click', getCategoryName('#selector'));
+
+
+function getCategoryName(el){
+    console.log($(el.val));
 }
