@@ -9,11 +9,9 @@ let letterContainer = $('#letterContainer');
 let popupContainer = $('#popupContainer');
 let gameBoard = $('#gameBoard');
 
-
-$('#chooseWord').on('click', openPopup2);
-$('#randomGenerate').on('click', openPopup2);
-$('#submit').on('click', openPopup3)
-$('#startbutton').on('click',drawGame)
+$('#chooseOwnWord').on('click', () => {popup1.hide(); popup2.slideDown()});
+$('#randomGenerate').on('click', () => {popup1.hide(); popup2.slideDown()});
+$('#startbutton').on('click', drawGameBoard);
 
 letterContainer.toggleClass('letterContainer')
 gameBoard.hide();
@@ -22,23 +20,7 @@ popup3.hide();
 popup4.hide();
 popup5.hide();
 
-function openPopup2() {
-  popup1.hide();
-  popup2.slideDown();
-}
-
-function openPopup3() {
-  popup2.hide();
-  popup3.slideDown();
-}
-
-function openPopup4() {
-  popup3.hide();
-  popup4.slideDown();
-}
-
-function drawGame() {
-  popup3.slideUp();
+function drawGameBoard () {
   createletters();
 }
 
@@ -57,9 +39,41 @@ function createletters() {
 let selector = $('#selector');
 let selectButton = $('#select');
 
-selectButton.on('click', getCategoryName('#selector'));
+selectButton.on('click', chooseWordFromCategory);
+
+let actors = ['Wesley Snipes','Steve Buscemi','Adam Sandler'];
+let movies = [];
+let rockStars = [];
 
 
-function getCategoryName(el){
-    console.log($(el.val));
+function chooseWordFromCategory(){
+      let category = selector.val();
+      switch (category) {
+        case 'Actors':
+          pickRandom(actors);
+          closePop2();
+          break;
+        case 'Rock Stars':
+          pickRandom(rockStars);
+          closePop2();
+          break;
+        case 'Movies':
+          pickRandom(movies);
+          closePop2();
+          break;
+      }
+}
+
+function closePop2() {
+  popup2.hide();
+  popup3.slideDown();
+}
+
+
+function pickRandom(array) {
+
+  let randomNumber = Math.floor(Math.random() * array.length);
+
+  let selectedWord = array[randomNumber];
+
 }
