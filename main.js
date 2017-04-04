@@ -22,6 +22,7 @@ popup5.hide();
 
 function drawGameBoard () {
   createletters();
+  // createGameSpaces();
 }
 
 function createletters() {
@@ -69,11 +70,26 @@ function closePop2() {
   popup3.slideDown();
 }
 
-
 function pickRandom(array) {
-
   let randomNumber = Math.floor(Math.random() * array.length);
-
   let selectedWord = array[randomNumber];
+  creatGameSpaces(selectedWord);
+}
 
+
+function creatGameSpaces(word) {
+  let gameLettersContainer = $('#gameContainer');
+  for (let i = 0; i < word.length; i++){
+    console.log(word[i]);
+    debugger;
+    if(word[i] === " ") {
+      let div = $('<div class=gamespace></div>');
+      gameLettersContainer.append(div);
+    }
+    else {
+      let div = $('<div class=gameletter></div>')
+      gameLettersContainer.append(div);
+      div.html(word[i]);
+    }
+  }
 }

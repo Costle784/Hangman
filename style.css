@@ -1,11 +1,13 @@
 body {
   width:900px;
-  height:100vh;
+  /*height:100vh;*/
   margin:0 auto;
   display:flex;
   flex-direction:column;
   background-color: eggshell;
   align-items: center;
+  justify-content: space-around;
+
 }
 
 
@@ -47,7 +49,7 @@ button:hover {
   flex-wrap:wrap;
   min-height: 70px;
   width:482px;
-  margin:100px;
+  margin:40px;
 }
 .letter {
   margin:3px;
@@ -63,5 +65,32 @@ footer {
 }
 
 .mainBoard {
-  height:600px;
+  height:300px;
+  width:482px;
+  border:1px solid black;
+  margin-top:30px;
+}
+/*.gamespaces {
+margin:15px;
+width:482px;
+text-align:center;
+}*/
+.gameletter {
+  width:30px;
+  border-bottom: 2px solid black;
+  margin:5px;
+  text-align:center;
+  padding:3px;
+}
+
+.gameLettersContainer {
+  margin-top:30px;
+  display:flex;
+}
+
+.gamespace {
+  width:30px;
+  margin:5px;
+  text-align:center;
+  padding:3px;
 }
