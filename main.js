@@ -7,18 +7,32 @@ let popup4 = $('#popup4');
 let popup5 = $('#popup5');
 
 //target all Gameplay elements
+let header = $('header');
+let hangmanBox = $('#hangmanBox');
+let gameLettersContainer = $('#gameContainer');
 let letterContainer = $('#letterContainer');
 let popupContainer = $('#popupContainer');
-let gameLettersContainer = $('#gameContainer');
-let hangmanBox = $('#hangmanBox');
 
 //popup2 buttons
 let categorySelector = $('#selector');
 let selectButton = $('#select');
 let ownWordButton = $('#chooseOwnWord');
 let createRandomButton = $('#randomGenerate');
+let playAgainButton = $('#playagain');
+let startButton = $('#startbutton');
 
-//hide all gameGamplay elements while popups take user inputs
+//target all hangman images // hidden by default
+let hangman1 = $('#img1');
+let hangman2 = $('#img2');
+let hangman3 = $('#img3');
+let hangman4 = $('#img4');
+let hangman5 = $('#img5');
+let hangman6 = $('#img6');
+let hangmanArray = [hangman1,hangman2,hangman3,hangman4,hangman5,hangman6];
+
+
+
+//hide all gameGamplay and unused popup elements
 letterContainer.hide();
 hangmanBox.hide();
 popup2.hide();
@@ -32,6 +46,11 @@ createRandomButton.on('click', () => {popup1.hide(); popup2.slideDown()});
 
 //eventers listener for popup2
 selectButton.on('click', chooseWordFromCategory);
+
+//event listener for play again button
+playAgainButton.on('click',resetGame);
+
+startButton.on('click', drawGameBoard);
 
 //stored values for popup2 categories
 let actors = ['Wesley Snipes','Steve Buscemi','Adam Sandler'];
@@ -68,15 +87,17 @@ function pickRandom(array) {
    selectedWord = array[randomNumber];
   }
 //add even listener for popup3, draw gameBoard //the transition from popups to gameplay
-$('#startbutton').on('click', drawGameBoard);
+
 
 function drawGameBoard () {
   popup3.hide();
   creatGameSpaces(selectedWord);
   createletters();
-  console.log(gameSpaces);
-}
-
+  letterContainer.slideDown()
+  hangmanBox.slideDown();
+  hangman1.slideDown();
+  header.fadeIn();
+  }
 
 let gameSpaces = [];
 //pass the chosen word(s) and create the game spaces
@@ -98,38 +119,28 @@ function creatGameSpaces(chosenword) {
 
 //MAKES LETTER TABLE
 //loop through the alphabet and create a new Letter div for each
+
+
+
 function createletters() {
-  let alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 
-  for (let i = 0; i <= alphabet.length - 1; i++){
-    let letter = $('<div class=letter></div>');
-    letter.on('click', checkForLetters);
-    letterContainer.append(letter);
-    letter.html(alphabet[i]);
-  }
-    letterContainer.fadeIn()
-    popupContainer.hide();
-    hangmanBox.fadeIn();
-    // hangmanBox.css('background-image', 'url(images/hangman1.png)');
+    let alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+
+    for (let i = 0; i <= alphabet.length - 1; i++){
+      let letter = $('<div class=letter></div>');
+      letter.on('click', checkForLetters);
+      letterContainer.append(letter);
+      letter.html(alphabet[i]);
+    }
 }
+    // hangmanBox.css('background-image', 'url(images/hangman1.png)');
+
 //turn all images to jQuery
-var hangman1 = $('#img1');
-var hangman2 = $('#img2');
-var hangman3 = $('#img3');
-var hangman4 = $('#img4');
-var hangman5 = $('#img5');
-var hangman6 = $('#img6');
-
-hangman1.show();
-
-
-
-
 
 //checks if button-pushed letter matches any of the gamespace letters
 //if yes it switches the hang switch true and hangman is not drawn
 //if it doesn't match any, hang switch is triggered and counter increases to next image
-var counter = 0;
+var counter = 1;
 function checkForLetters() {
   let hangSwitch = "";
   let pushedButtonLetter = $(this).text();
@@ -142,8 +153,30 @@ function checkForLetters() {
     }
   }
   if(!hangSwitch) {
-    hangmanBox.append(imageArray[counter]);
-    imageArray[counter].fadeIn();
+    hangmanArray[counter].fadeIn();
     counter++;
+    checkGameOver();
   }
+}
+
+function checkGameOver() {
+  if (counter === 6) {
+    popup4.slideDown();
+    popupContainer.show();
+  }
+}
+
+function resetGame() {
+  letterContainer.hide();
+  hangmanBox.hide();
+  popup2.hide();
+  popup3.hide();
+  popup4.hide();
+  popup5.hide();
+  popup1.slideDown();
+  counter = 1;
+  hangmanArray.forEach( (img) => {img.hide()});
+  gameLettersContainer.empty();
+  letterContainer.empty();
+  header.hide();
 }

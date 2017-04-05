@@ -15,6 +15,7 @@ body {
   align-items: center;
   justify-content: center;
   height:100vh;
+  position:absolute;
 }
 
 
@@ -47,7 +48,7 @@ button:hover {
   flex-wrap:wrap;
   min-height: 70px;
   width:482px;
-  margin:40px;
+  margin:10px;
 }
 .letter {
   margin:3px;
@@ -56,10 +57,11 @@ button:hover {
   height:15px;
   width:15px;
   text-align:center;
+  font-family: 'Eater', cursive;
 }
 footer {
   text-align:center;
-  margin-top:30px;
+  /*margin-top:10px;*/
 }
 
 .gameletter {
@@ -69,6 +71,8 @@ footer {
   text-align:center;
   padding:3px;
   color: white;
+  font-family: 'Eater', cursive;
+  font-size:30px;
 }
 .gamespace {
   width:30px;
@@ -81,15 +85,19 @@ footer {
 }
 
 .gameLettersContainer {
-  margin-top:30px;
   display:flex;
 }
 .hangmanContainer {
   height: 300px;
   width: 482px;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
 }
 .hangmanImg {
-visibility:hidden;
-position:absolute;
+  display:none;
+  position:absolute;
+}
+header {
+  font-family: 'Eater', cursive;
+  display:none;
+  font-size:4em;
 }

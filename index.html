@@ -3,10 +3,14 @@
   <head>
     <meta charset="utf-8">
     <link rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.css'>
+    <link href="https://fonts.googleapis.com/css?family=Eater" rel="stylesheet">
     <link rel='stylesheet' type='text/css' href='./style.css'>
     <title></title>
   </head>
   <body>
+    <header>
+      Hangman!
+    </header>
     <div class='hangmanContainer' id='hangmanBox'>
       <img src='images/hangman1.png' id='img1' class='hangmanImg'>
       <img src='images/hangman2.png' id='img2' class='hangmanImg'>
@@ -36,7 +40,11 @@
         <br>
         <button id='startbutton'>Start!</button>
       </div>
-      <div class='popup' id='popup4'></div>
+      <div class='popup' id='popup4'>
+        Game Over
+        <br>
+        <button id='playagain'>Play Again?</button>
+      </div>
       <div class='popup' id='popup5'></div>
     </div>
     <div class='gameLettersContainer' id='gameContainer'></div>
