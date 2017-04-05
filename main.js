@@ -28,7 +28,8 @@ let hangman3 = $('#img3');
 let hangman4 = $('#img4');
 let hangman5 = $('#img5');
 let hangman6 = $('#img6');
-let hangmanArray = [hangman1,hangman2,hangman3,hangman4,hangman5,hangman6];
+let hangman7 = $('#img7');
+let hangmanArray = [hangman1,hangman2,hangman3,hangman4,hangman5,hangman6,hangman7];
 
 
 
@@ -107,7 +108,7 @@ function creatGameSpaces(chosenword) {
       let emptySpace = $('<div class=gamespace></div>');
       gameLettersContainer.append(emptySpace);
       gameSpaces.push(emptySpace);
-    }
+      }
     else {
       let gameLetter = $('<div class=gameletter></div>')
       gameSpaces.push(gameLetter);
@@ -133,38 +134,57 @@ function createletters() {
       letter.html(alphabet[i]);
     }
 }
-    // hangmanBox.css('background-image', 'url(images/hangman1.png)');
 
-//turn all images to jQuery
 
 //checks if button-pushed letter matches any of the gamespace letters
 //if yes it switches the hang switch true and hangman is not drawn
 //if it doesn't match any, hang switch is triggered and counter increases to next image
-var counter = 1;
+let gameLetterCounter = 0;
+let counter = 1;
 function checkForLetters() {
   let hangSwitch = "";
   let pushedButtonLetter = $(this).text();
+  $(this).css('background','grey');
   $(this).off('click',checkForLetters);   //turn off click event listener on letter
+
 
   for (let i = 0; i < gameSpaces.length; i++) {
     if(pushedButtonLetter === gameSpaces[i].html().toUpperCase()) {
-       gameSpaces[i].toggleClass('makevisible');
+       gameSpaces[i].addClass('makevisible');
        hangSwitch = 'safe'
     }
   }
+  checkWin();
   if(!hangSwitch) {
     hangmanArray[counter].fadeIn();
     counter++;
+    console.log(counter);
     checkGameOver();
   }
 }
 
 function checkGameOver() {
-  if (counter === 6) {
+  if (counter === 7) {
     popup4.slideDown();
-    popupContainer.show();
   }
 }
+
+function checkWin() {
+  var hasWon = gameSpaces
+    .filter((el) => {
+      return $(el).text() !== ''
+    })
+    .every((el) => {
+      return $(el).hasClass('makevisible')
+    });
+  console.log(hasWon);
+  if(hasWon){
+    popup5.show();
+  }
+}
+
+
+
 
 function resetGame() {
   letterContainer.hide();
