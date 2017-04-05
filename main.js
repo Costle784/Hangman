@@ -18,7 +18,8 @@ let categorySelector = $('#selector');
 let selectButton = $('#select');
 let ownWordButton = $('#chooseOwnWord');
 let createRandomButton = $('#randomGenerate');
-let playAgainButton = $('#playagain');
+let losePlayAgainButton = $('#playagain');
+let winPlayAgainButton = $('#playagain1');
 let startButton = $('#startbutton');
 
 //target all hangman images // hidden by default
@@ -48,8 +49,9 @@ createRandomButton.on('click', () => {popup1.hide(); popup2.slideDown()});
 //eventers listener for popup2
 selectButton.on('click', chooseWordFromCategory);
 
-//event listener for play again button
-playAgainButton.on('click',resetGame);
+//event listener for play again buttons
+losePlayAgainButton.on('click',resetGame);
+winPlayAgainButton.on('click',resetGame);
 
 startButton.on('click', drawGameBoard);
 
