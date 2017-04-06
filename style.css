@@ -4,11 +4,36 @@ body {
   margin:0 auto;
   display:flex;
   flex-direction:column;
-  background-color: eggshell;
   align-items: center;
   justify-content: space-around;
   background-color:#187692;
-
+}
+button {
+  padding:8px;
+  margin:10px;
+  border-radius: 5px;
+  font-family: 'Eater', cursive;
+  font-size:30px
+}
+button:hover, .letter:hover {
+  background-color:#d3d3d3;
+}
+p {
+  font-family: 'Eater', cursive;
+}
+header {
+  font-family: 'Eater', cursive;
+  display:none;
+  font-size:4em;
+  color:#df0000;
+}
+h2 {
+  font-family: 'Eater', cursive;
+  font-size:40px;
+  color:#df0000
+}
+footer {
+  text-align:center;
 }
 .popupHolder {
   display: flex;
@@ -26,29 +51,8 @@ body {
   border:2px solid black;
   border-radius: 5px;
   position:absolute;
-}
-
-button {
-  padding:8px;
-  margin:10px;
-  border-radius: 5px;
-  background-color:rgba(0,0,0,0);
-  font-family: 'Eater', cursive;
-  font-size:30px
-}
-p {
   font-family: 'Eater', cursive;
 }
-
-
-button:hover {
-  background-color:#d3d3d3;
-}
-
-.letter:hover {
-  background-color:#d3d3d3;
-}
-
 .letterContainer {
   display:flex;
   justify-content: space-around;
@@ -67,22 +71,13 @@ button:hover {
   text-align:center;
   font-family: 'Eater', cursive;
 }
-/*.letter:hover {
-  border: 2px solid rgb(88, 235, 215);
-  background-color:pink;*/
-}
-footer {
-  text-align:center;
-  /*margin-top:10px;*/
-}
-
 .gameletter {
   width:30px;
   border-bottom: 2px solid black;
   margin:5px;
   text-align:center;
   padding:3px;
-  color:#187692 ;
+  color:#187692;
   font-family: 'Eater', cursive;
   font-size:30px;
 }
@@ -95,27 +90,14 @@ footer {
 .makevisible {
   color:#273160;
 }
-
 .gameLettersContainer {
   display:flex;
 }
 .hangmanContainer {
   height: 300px;
   width: 482px;
-  /*border: 1px solid black;*/
 }
 .hangmanImg {
   display:none;
   position:absolute;
-}
-header {
-  font-family: 'Eater', cursive;
-  display:none;
-  font-size:4em;
-  color:#df0000;
-}
-h2 {
-  font-family: 'Eater', cursive;
-  font-size:40px;
-  color:#df0000
 }
