@@ -4,6 +4,4 @@ A Browser game built as an exercise in DOM manipulation.  I used Jquery to targe
 
 Technologies used include HTML5, CSS3, Javascript and JQuery. 
 
-My only unsolved problem is that the game gets buggy after a user restarts a game without refreshing the browser. 
-
 #### https://costle784.github.io/Project1-Hangman/
