@@ -1,103 +1,119 @@
 body {
-  width:900px;
-  height:100vh;
-  margin:0 auto;
-  display:flex;
-  flex-direction:column;
-  align-items: center;
-  justify-content: space-around;
-  background-color:#187692;
+    width: 900px;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #187692;
 }
+
 button {
-  padding:8px;
-  margin:10px;
-  border-radius: 5px;
-  font-family: 'Eater', cursive;
-  font-size:30px
+    padding: 8px;
+    margin: 10px;
+    border-radius: 5px;
+    font-family: 'Eater', cursive;
+    font-size: 30px
 }
+
 button:hover, .letter:hover {
-  background-color:#d3d3d3;
+    background-color: #d3d3d3;
 }
+
 p {
-  font-family: 'Eater', cursive;
+    font-family: 'Eater', cursive;
 }
+
 header {
-  font-family: 'Eater', cursive;
-  display:none;
-  font-size:4em;
-  color:#df0000;
+    font-family: 'Eater', cursive;
+    display: none;
+    font-size: 4em;
+    color: #df0000;
 }
+
 h2 {
-  font-family: 'Eater', cursive;
-  font-size:40px;
-  color:#df0000
+    font-family: 'Eater', cursive;
+    font-size: 40px;
+    color: #df0000
 }
+
 footer {
-  text-align:center;
+    text-align: center;
 }
+
 .popupHolder {
-  display: flex;
-  flex-direction:column;
-  align-items: center;
-  justify-content: center;
-  height:100vh;
-  position:absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: absolute;
 }
+
 .popup {
-  width:400px;
-  background:#f9f9f9;
-  padding:15px;
-  text-align: center;
-  border:2px solid black;
-  border-radius: 5px;
-  position:absolute;
-  font-family: 'Eater', cursive;
+    width: 400px;
+    background: #f9f9f9;
+    padding: 15px;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 5px;
+    position: absolute;
+    font-family: 'Eater', cursive;
 }
+
 .letterContainer {
-  display:flex;
-  justify-content: space-around;
-  border:2px solid black;
-  flex-wrap:wrap;
-  min-height: 70px;
-  width:482px;
-  margin:10px;
+    display: flex;
+    justify-content: space-around;
+    border: 2px solid black;
+    flex-wrap: wrap;
+    min-height: 70px;
+    width: 482px;
+    margin: 10px;
 }
+
 .letter {
-  margin:3px;
-  border:2px solid black;
-  padding:5px;
-  height:15px;
-  width:15px;
-  text-align:center;
-  font-family: 'Eater', cursive;
+    margin: 3px;
+    border: 2px solid black;
+    padding: 5px;
+    height: 15px;
+    width: 15px;
+    text-align: center;
+    font-family: 'Eater', cursive;
 }
+
 .gameletter {
-  width:30px;
-  border-bottom: 2px solid black;
-  margin:5px;
-  text-align:center;
-  padding:3px;
-  color:#187692;
-  font-family: 'Eater', cursive;
-  font-size:30px;
+    width: 30px;
+    border-bottom: 2px solid black;
+    margin: 5px;
+    text-align: center;
+    padding: 3px;
+    color: #187692;
+    font-family: 'Eater', cursive;
+    font-size: 30px;
 }
+
 .gamespace {
-  width:30px;
-  margin:5px;
-  text-align:center;
-  padding:3px;
+    width: 30px;
+    margin: 5px;
+    text-align: center;
+    padding: 3px;
 }
+
 .makevisible {
-  color:#273160;
+    color: #273160;
 }
+
 .gameLettersContainer {
-  display:flex;
+    display: flex;
 }
+
 .hangmanContainer {
-  height: 300px;
-  width: 482px;
+    height: 300px;
+    width: 482px;
 }
+
 .hangmanImg {
-  display:none;
-  position:absolute;
+    display: none;
+    position: absolute;
 }
