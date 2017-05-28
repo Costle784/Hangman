@@ -21,7 +21,6 @@ let popupStart = $('#popup3');
 let popupGameOver = $('#popup4');
 let popupYouWin = $('#popup5');
 let popupChooseOwnWord = $('#popup6');
-let popupChooseOwnWordStart = $('#popup7');
 
 //targeted all Container elements
 let header = $('header');
@@ -77,7 +76,6 @@ popupStart.hide();
 popupGameOver.hide();
 popupYouWin.hide();
 popupChooseOwnWord.hide();
-popupChooseOwnWordStart.hide();
 
 //event listeners for all popup buttons
 ownWordButton.on('click', () => {
@@ -216,37 +214,41 @@ function checkGameOver() {
   if(counter === 7){
     loseGame.play();
     popupGameOver.slideDown();
+    gameSpaces.forEach((letter) => {
+      letter.addClass('makevisible')
+    })
   }
 }
 
 function checkWin() {
-    let hasWon = gameSpaces
-        .filter((el) => {
-            return $(el).text() !== ''
-        })
-        .every((el) => {
-            return $(el).hasClass('makevisible')
-        });
-    if (hasWon) {
-        winGame.play();
-        popupYouWin.show();
-    }
+  let hasWon = gameSpaces
+    .filter((letter) => {
+      return $(letter).text() !== ''
+    })
+    .every((el) => {
+        return $(el).hasClass('makevisible')
+    });
+  if(hasWon) {
+    winGame.play();
+    popupYouWin.show();
+  }
 }
 
 function resetGame() {
-    select.play();
-    letterContainer.hide();
-    hangmanBox.hide();
-    popupCategorySelector.hide();
-    popupStart.hide();
-    popupGameOver.hide();
-    popupYouWin.hide();
-    popupWelcome.slideDown();
-    counter = 1;
-    hangmanArray.forEach((img) => {
-        img.hide()
-    });
-    gameLettersContainer.empty();
-    letterContainer.empty();
-    header.hide();
+  select.play();
+  letterContainer.hide();
+  hangmanBox.hide();
+  popupCategorySelector.hide();
+  popupStart.hide();
+  popupGameOver.hide();
+  popupYouWin.hide();
+  header.hide();
+  popupWelcome.slideDown();
+  counter = 1;
+  hangmanArray.forEach((img) => {
+      img.hide()
+  });
+  gameLettersContainer.empty();
+  letterContainer.empty();
+  gameSpaces = [];
 }
